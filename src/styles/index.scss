@@ -1,68 +1,132 @@
 @use "reset";
 
 $open-sans:
-  "Open Sans",
-  sans-serif,
-  system-ui,
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Oxygen,
-  Ubuntu,
-  Cantarell,
-  "Open Sans",
-  "Helvetica Neue",
-  sans-serif;
+	"Open Sans",
+	sans-serif,
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	"Segoe UI",
+	Roboto,
+	Oxygen,
+	Ubuntu,
+	Cantarell,
+	"Open Sans",
+	"Helvetica Neue",
+	sans-serif;
 
 html {
-  background: gray;
-  display: flex;
-  width: 100%;
-  height: 100%;
+	background: gray;
+	display: flex;
+	width: 100%;
+	height: 100%;
 }
 
 body {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-image: url(../assets/images/car-finder-bg.jpg);
-  background-size: cover;
-  background-position: center center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-image: url(../assets/images/car-finder-bg.jpg);
+	background-size: cover;
+	background-position: center center;
 }
 
 main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	gap: 1rem;
+	width: 100%;
+	max-width: 1000px;
+	margin: 1rem;
+
+	& > h1 {
+		font-family: $open-sans;
+		font-size: 36px;
+		font-weight: bolder;
+		color: #ffffff;
+	}
+
+	& > p {
+		font-family: $open-sans;
+		font-size: 16px;
+		font-weight: 500;
+		color: #d3d3d3;
+		line-height: 150%;
+	}
+}
+
+form {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+	align-items: start;
+	gap: 2rem;
+	padding: 2rem;
+	width: 100%;
+	background-color: #f2f2f2;
+	border-radius: 12px;
+}
+
+.car-property {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 1rem;
+  gap: 4rem;
   width: 100%;
-  max-width: 1000px;
-  margin: 1rem;
 
-  & > h1 {
+  & > h2 {
     font-family: $open-sans;
-    font-size: 36px;
-    font-weight: bolder;
-    color: #FFFFFF;
-  }
-
-  & > p {
-    font-family: $open-sans;
-    font-size: 16px;
-    font-weight: 500;
-    color: #D3D3D3;
-    line-height: 150%;
+		font-size: 36px;
+		font-weight: 700;
+		color: #3494bc;
   }
 }
 
-form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  align-items: start;
-  padding:2rem;
-  background-color: #F2F2F2;
-  border-radius: 12px;
+.form-select {
+	position: relative;
+	width: 100%;
+
+	& > label {
+		position: absolute;
+		top: -7px;
+		left: 12px;
+		z-index: 1;
+		padding: 0 4px;
+		background-color: #f2f2f2;
+		font-family: $open-sans;
+		font-size: 12px;
+		font-weight: 500;
+		color: #909090;
+	}
+
+	& > select {
+		width: 100%;
+		height: 48px;
+		padding: 0 14px;
+		background-color: transparent;
+		border: 1px solid #909090;
+		border-radius: 3px;
+		font-family: $open-sans;
+		font-size: 14px;
+		font-weight: 500;
+		color: #212121;
+
+		&:focus {
+			outline: none;
+			border-color: #3494bc;
+		}
+
+		&:disabled {
+			color: #909090;
+		}
+	}
+
+	&:focus-within > label {
+		color: #3494bc;
+	}
 }

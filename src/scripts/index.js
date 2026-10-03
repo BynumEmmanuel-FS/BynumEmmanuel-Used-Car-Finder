@@ -8,7 +8,6 @@ class Main {
 			make: document.getElementById("make"),
 			model: document.getElementById("model"),
 		};
-		this.filtered = [];
 
 		this.inputs.year.addEventListener("input", (e) => this.handleYear(e));
 		this.inputs.make.addEventListener("input", (e) => this.handleMake(e));
