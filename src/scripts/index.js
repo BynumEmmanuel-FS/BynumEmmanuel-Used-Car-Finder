@@ -1,5 +1,6 @@
 import "../styles/index.scss";
 import data from "../assets/data/car-dataset.json";
+import { titleCase } from "title-case";
 
 class Main {
 	constructor() {
@@ -49,7 +50,7 @@ class Main {
 		const makes = new Set();
 		for (let car of data) {
 			if (car.year == value) {
-				makes.add(car.Manufacturer);
+				makes.add(titleCase(car.Manufacturer));
 			}
 		}
 
@@ -69,8 +70,8 @@ class Main {
 
 		const models = new Set();
 		for (let car of data) {
-			if (car.year == this.inputs.year.value && car.Manufacturer == value) {
-				models.add(car.model);
+			if (car.year == this.inputs.year.value && titleCase(car.Manufacturer) == value) {
+				models.add(titleCase(car.model));
 			}
 		}
 
@@ -88,8 +89,8 @@ class Main {
 		const matches = data.filter((car) => {
 			return (
 				car.year == this.inputs.year.value &&
-				car.Manufacturer == this.inputs.make.value &&
-				car.model == e.target.value
+				titleCase(car.Manufacturer) == this.inputs.make.value &&
+				titleCase(car.model) == e.target.value
 			);
 		});
 		for (let match of matches) {
@@ -99,7 +100,5 @@ class Main {
 }
 
 (() => {
-	console.log("Starting index.js script...");
-
 	new Main();
 })();

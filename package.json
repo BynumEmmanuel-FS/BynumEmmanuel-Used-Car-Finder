@@ -25,5 +25,8 @@
   "allowScripts": {
     "@parcel/watcher@2.5.0": true,
     "fsevents@2.3.3": true
+  },
+  "dependencies": {
+    "title-case": "^4.3.2"
   }
 }
